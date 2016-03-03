@@ -38,7 +38,7 @@ public class CustomerEditor extends VerticalLayout {
 	TextField lastName = new TextField("Last name");
 
 	/* Action buttons */
-	Button save = new Button("Save", FontAwesome.SAVE);
+	Button save = new Button("Save XX", FontAwesome.SAVE);
 	Button cancel = new Button("Cancel");
 	Button delete = new Button("Delete", FontAwesome.TRASH_O);
 	CssLayout actions = new CssLayout(save, cancel, delete);
@@ -56,7 +56,7 @@ public class CustomerEditor extends VerticalLayout {
 		save.setClickShortcut(ShortcutAction.KeyCode.ENTER);
 
 		// wire action buttons to save, delete and reset
-		save.addClickListener(e -> repository.save(customer));
+		save.addClickListener(e -> repository.saveAndFlush(customer));
 		delete.addClickListener(e -> repository.delete(customer));
 		cancel.addClickListener(e -> editCustomer(customer));
 		setVisible(false);

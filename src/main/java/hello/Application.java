@@ -2,7 +2,7 @@ package hello;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,13 +12,18 @@ import org.springframework.context.annotation.Bean;
 public class Application {
 
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
-
+	
+	@Value("${spring.datasource.url}")
+	private  String jdbcUrl;
+	
 	public static void main(String[] args) {
+		//log.info("spring.datasource.url: "+jdbcUrl);
 		SpringApplication.run(Application.class);
 	}
 
 	@Bean
 	public CommandLineRunner loadData(CustomerRepository repository) {
+		log.info(">>>>>>>>>>>>> spring.datasource.url: "+jdbcUrl);
 		return (args) -> {
 			// save a couple of customers
 			repository.save(new Customer("Jack", "Bauer"));

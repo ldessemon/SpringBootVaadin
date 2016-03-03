@@ -1,0 +1,12 @@
+{
+    "runtime": {
+        "majorVersion": "8"
+    },
+    "command": "java -jar gs-crud-with-vaadin-0.1.0.jar",
+    "release": {
+        "build": "150520.1154",
+        "commit": "d8c2596364d9584050462",
+        "version": "15.1.0"
+    },
+    "notes": "notes related to release"
+}
